@@ -101,7 +101,7 @@
     <script>
         function handleFormSubmit(event) {
             event.preventDefault();
-            setTimeout(drawTimer, 1000);
+            let timer = setInterval(drawTimer, 1000);
         }
 
         function drawTimer() {
