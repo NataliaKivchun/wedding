@@ -107,8 +107,9 @@
 
         function drawTimer() {
             let deadline = new Date("August 2, 2024 00:00:00").getTime();
-            let delta = new Date(Date.now() - new Date(deadline));
-            
+            console.log(deadline);
+            let delta = new Date(new Date(deadline) - Date.now());
+            console.log(delta);
             let questionsWrapper = document.querySelector("#questions");
             questionsWrapper.innerHTML = `<h3 class="section-header">До свадьбы осталось</h3>
             <div class="timer__wrapper">
