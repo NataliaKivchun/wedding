@@ -107,20 +107,24 @@
 
         function drawTimer() {
             let deadline = new Date("August 2, 2024 00:00:00").getTime();
-            console.log(deadline);
             let delta = new Date(deadline) - new Date();
-            console.log(delta);
+            delta = delta / 1000;
+            let delta_days = Math.floor(delta / (3600 * 24));
+            delta = delta - (delta_days * 3600 * 24);
+            let delta_hours = Math.floor(delta / 3600);
+            delta = delta - (delta_hours * 3600);
+            let delta_min = Math.floor(delta / 60);
+            delta = delta - (delta_min * 60);
+            let delta_sec = Math.floor(delta);
             let questionsWrapper = document.querySelector("#questions");
             questionsWrapper.innerHTML = `<h3 class="section-header">До свадьбы осталось</h3>
             <div class="timer__wrapper">
-                <div class="timer__days">${delta.getDate()}</div>
-                <div class="timer__hours">${delta.getHours()}</div>
-                <div class="timer__min">${delta.getMinutes()}</div>
-                <div class="timer__sec">${delta.getSeconds()}</div>
+                <div class="timer__days">${delta_days}</div>
+                <div class="timer__hours">${delta_hours}</div>
+                <div class="timer__min">${delta_min}</div>
+                <div class="timer__sec">${delta_sec}</div>
             </div>`;
         }
-
-
     </script>
 </body>
 </html>
