@@ -62,6 +62,7 @@
         </div>
     </section>
     <section class="questions" id="questions">
+        <div class="form-wrapper" id="form-wrapper">
             <h3 class="section-header">Ваше присутствие</h3>
             <div class="questions__image"></div>
             <p class="questions__text">Подтвердите свое присутствие и ответьте на несколько вопросов.<br> Это поможет в организации торжества!<br> Будем ждать ваш ответ до 15.08.2024</p>
@@ -91,29 +92,33 @@
                 </div>
                 <button type="submit" class="form-btn">Отправить ответ</button>
             </form>
+        </div>
+            <div class="timer-wrapper" id="timer" hidden>
+                <h3 class="section-header">До свадьбы осталось</h3>
+                <div class="timer__box">
+                    <div class="timer days"></div>
+                    <div class="timer hours"></div>
+                    <div class="timer minutes"></div>
+                    <div class="timer seconds"></div>
+                </div>
+            </div>
     </section>
     <section class="waiting">
         <h3 class="section-header">Будем Вас ждать!</h3>
-        <div class="waiting__timer-wrapper">
-            <div id="timer"></div>
-        </div>
     </section>
     <script>
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            let questionsWrapper = document.querySelector("#questions");
-            questionsWrapper.innerHTML = `<h3 class="section-header">До свадьбы осталось</h3>
-            <div class="timer__wrapper" onload="startTimer()">
-                <div class="timer days"></div>
-                <div class="timer hours"></div>
-                <div class="timer minutes"></div>
-                <div class="timer seconds"></div>
-            </div>`;            
-        }
 
-        function startTimer() {
+        window.onload = function() {
             const deadline = new Date("August 2, 2024 00:00:00").getTime();
             initializeClock('questions', deadline);
+        }
+        
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            let timerWrapper = document.querySelector("#timer");
+            let formWrapper = document.querySelector("#form-wrapper");
+            timerWrapper.removeAttribute("hidden"); 
+            formWrapper.setAttribute("hidden", "");    
         }
 
         function updateTimer(deadline) {
@@ -135,27 +140,27 @@
         }
 
         function initializeClock(id, deadline) {
-        const clock = document.getElementById(id);
-        const daysSpan = clock.querySelector('.days');
-        const hoursSpan = clock.querySelector('.hours');
-        const minutesSpan = clock.querySelector('.minutes');
-        const secondsSpan = clock.querySelector('.seconds');
+            const clock = document.getElementById(id);
+            const daysSpan = clock.querySelector('.days');
+            const hoursSpan = clock.querySelector('.hours');
+            const minutesSpan = clock.querySelector('.minutes');
+            const secondsSpan = clock.querySelector('.seconds');
 
-        function updateClock() {
-            const t = updateTimer(deadline);
+            function updateClock() {
+                const t = updateTimer(deadline);
 
-            daysSpan.innerHTML = ('0' + t.days).slice(-2);
-            hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-            minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-            secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+                daysSpan.innerHTML = ('0' + t.days).slice(-2);
+                hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
 
-            if (t.total <= 0) {
-            clearInterval(timeinterval);
+                if (t.total <= 0) {
+                    clearInterval(timeinterval);
+                }
             }
-        }
 
-        updateClock();
-        const timeinterval = setInterval(updateClock, 1000);
+            updateClock();
+            const timeinterval = setInterval(updateClock, 1000);
         }
     </script>
 </body>
