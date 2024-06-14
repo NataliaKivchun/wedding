@@ -103,13 +103,15 @@
             event.preventDefault();
             let questionsWrapper = document.querySelector("#questions");
             questionsWrapper.innerHTML = `<h3 class="section-header">До свадьбы осталось</h3>
-            <div class="timer__wrapper">
+            <div class="timer__wrapper" onload="startTimer()">
                 <div class="timer days"></div>
                 <div class="timer hours"></div>
                 <div class="timer minutes"></div>
                 <div class="timer seconds"></div>
-            </div>`;
+            </div>`;            
+        }
 
+        function startTimer() {
             const deadline = new Date("August 2, 2024 00:00:00").getTime();
             initializeClock('questions', deadline);
         }
