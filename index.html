@@ -108,17 +108,18 @@
     </section>
     <script>
 
-        window.onload = function() {
-            const deadline = new Date("August 2, 2024 00:00:00").getTime();
-            initializeClock('questions', deadline);
-        }
+        // window.onload = function() {
+        //     const deadline = new Date("August 2, 2024 00:00:00").getTime();
+        //     initializeClock('questions', deadline);
+        // }
         
         function handleFormSubmit(event) {
             event.preventDefault();
             let timerWrapper = document.querySelector("#timer");
             let formWrapper = document.querySelector("#form-wrapper");
             timerWrapper.removeAttribute("hidden"); 
-            formWrapper.setAttribute("hidden", "");    
+            formWrapper.setAttribute("hidden", "");
+            console.log("form sended")    
         }
 
         function updateTimer(deadline) {
