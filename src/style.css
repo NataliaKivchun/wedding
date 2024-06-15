@@ -1,3 +1,308 @@
-.Dq4amc, .T2dutf, .xpWfed {
-    display: none !important;
+@font-face {
+    font-family: "GreatVibes";
+    src: url("./fonts/GreatVibes/GreatVibes-Regular.ttf");
+    font-weight: 400;
+}
+  
+@font-face {
+    font-family: "OpenSans";
+    src: url("./fonts/OpenSans/OpenSans-Light.ttf");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "OpenSans";
+    src: url("./fonts/OpenSans/OpenSans-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "OpenSans";
+    src: url("./fonts/OpenSans/OpenSans-Bold.ttf");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "OpenSans";
+    src: url("./fonts/OpenSans/OpenSans-ExtraBold.ttf");
+    font-weight: 800;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'OpenSans', sans-serif;
+    font-weight: 400;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #dee1f970;
+}
+
+.container, .banner__content {
+    padding: 0 15px;
+    margin: 0 auto;
+    max-width: 750px;
+}
+
+.banner {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 750px;
+    min-height: 100vh;
+    background-image: url("./images/photo_smile.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.banner__names {
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.banner__names-his,
+.banner__names-and,
+.banner__names-her {
+    font-family: 'GreatVibes', sans-serif;
+    color: #dee1f9;
+    font-size: 90px;
+}
+
+.banner__text {
+    color: #dee1f9;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.wedding-date, .timetable {
+    margin: 100px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.section-header {
+    text-align: center;
+    font-family: 'GreatVibes', sans-serif;
+    color: #000000;
+    font-size: 80px;
+}
+
+@media (max-width: 630px) { 
+    .section-header {
+        font-size: 65px;
+    }
+ }
+
+@media (max-width: 510px) { 
+    .section-header {
+        font-size: 50px;
+    }
+ }
+
+.wedding-date__calendar {
+    max-width: 100%;
+    max-height: calc(100vh - 320px);
+}
+
+.timetable {
+    height: calc(100vh - 150px);
+}
+
+.timetable__steps {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.timetable__line {
+    flex-grow: 1;
+    width: 3px;
+    background-color: #000000;
+    margin-left: 100px;
+}
+
+.timetable__step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.timetable__step-time {
+    font-size: 26px;
+    width: 75px;
+}
+
+.timetable__step-img {
+    width: 32px;
+    height: 32px;
+}
+
+.timetable__step-title {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.location {
+    margin: 100px 0;
+    height: calc(100vh - 150px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.location__image {
+    margin: 30px 0 20px;
+    flex-grow: 1;
+    background-image: url("./images/photo_sunset.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 300px;
+}
+
+.location__link {
+    color: #000000;
+    margin-top: 10px;
+}
+
+.questions {
+    margin: 100px 0;
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.questions__text {
+    margin: 20px 0 35px;
+    text-align: center;
+    font-size: 18px;
+}
+
+#attendance-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+.form-element {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.form-element__title {
+    font-weight: 700;
+}
+
+.form-element__text-input {
+    border: none;
+    border-bottom: 1px solid #0b336be5;
+    background-color: transparent;
+    padding: 0 12px;
+    height: 44px;
+}
+
+.form-btn {
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0b336be5;
+    color: #dee1f9;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    border-radius: 22px;
+    cursor: pointer;
+}
+
+div[hidden] {
+    display: none;
+}
+
+.timer-wrapper {
+    width: 100%;
+    background-image: url("./images/photo_hands.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #0000005d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+    gap: 20px;
+}
+
+.timer-wrapper .section-header {
+    color: #dee1f9;
+}
+
+.timer__box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    background-color: #0000006d;
+    border-radius: 20px;
+}
+
+.timer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    width: 70px;
+}
+
+.timer__label {
+    color: #dee1f9;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.timer__value {
+    color: #dee1f9;
+    font-size: 30px;
+}
+
+.waiting {
+    margin: 100px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.waiting__image {
+    margin: 30px;
+    height: 400px;
+    background-image: url("./images/photo_back.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 300px;
 }
