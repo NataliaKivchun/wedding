@@ -62,11 +62,11 @@
         </div>
     </section>
     <section class="questions" id="questions">
+        <div class="form-wrapper" id="form-wrapper">
             <h3 class="section-header">Ваше присутствие</h3>
-            <p class="questions__text">Спасибо за Ваш ответ!</p>
             <div class="questions__image"></div>
             <p class="questions__text">Подтвердите свое присутствие и ответьте на несколько вопросов.<br> Это поможет в организации торжества!<br> Будем ждать ваш ответ до 15.08.2024</p>
-            <form action="https://docs.google.com/forms/d/e/1FAIpQLSfaN-O9nHb9eAJ4kmPle-BvZNJqAeinG12hhrBU80-O-NtzmQ/formResponse" method="POST" onsubmit="handleFormSubmit(event)">
+            <form id="attendance-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfaN-O9nHb9eAJ4kmPle-BvZNJqAeinG12hhrBU80-O-NtzmQ/formResponse" method="POST" onsubmit="handleFormSubmit(event)">
                 <div class="form-element">
                     <span class="form-element__title">Фамилия Имя</span>
                     <input class="form-element__text-input" type="text" name="entry.877086558" placeholder="Например: Антон и Анна Ивановы" required>
@@ -92,21 +92,76 @@
                 </div>
                 <button type="submit" class="form-btn">Отправить ответ</button>
             </form>
+        </div>
+            <div class="timer-wrapper" id="timer" hidden>
+                <h3 class="section-header">До свадьбы осталось</h3>
+                <div class="timer__box">
+                    <div class="timer days"></div>
+                    <div class="timer hours"></div>
+                    <div class="timer minutes"></div>
+                    <div class="timer seconds"></div>
+                </div>
+            </div>
     </section>
     <section class="waiting">
         <h3 class="section-header">Будем Вас ждать!</h3>
-        <div class="waiting__timer-wrapper">
-            <div id="timer"></div>
-        </div>
     </section>
     <script>
+
+        window.onload = function() {
+            const deadline = new Date("August 2, 2024 00:00:00").getTime();
+            initializeClock('questions', deadline);
+        }
+        
         function handleFormSubmit(event) {
             event.preventDefault();
-            console.log("Form has sent!");
-            let questionsWrapper = document.querySelector("#questions");
-            questionsWrapper.innerHTML = `<h3 class="section-header">Ваше присутствие</h3>
-            <p class="questions__text">Спасибо за Ваш ответ!</p>
-            <div class="questions__image"></div>`;
+            let timerWrapper = document.querySelector("#timer");
+            let formWrapper = document.querySelector("#form-wrapper");
+            timerWrapper.removeAttribute("hidden"); 
+            formWrapper.setAttribute("hidden", "");
+            document.getElementById("attendance-form").submit(); 
+        }
+
+        function updateTimer(deadline) {
+            const now = new Date().getTime();
+            const t = deadline - now;
+
+            const days = Math.floor(t / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((t % (1000 * 60)) / 1000);
+
+            return {
+                'total': t,
+                'days': days,
+                'hours': hours,
+                'minutes': minutes,
+                'seconds': seconds
+            };
+        }
+
+        function initializeClock(id, deadline) {
+            const clock = document.getElementById(id);
+            const daysSpan = clock.querySelector('.days');
+            const hoursSpan = clock.querySelector('.hours');
+            const minutesSpan = clock.querySelector('.minutes');
+            const secondsSpan = clock.querySelector('.seconds');
+
+            function updateClock() {
+                const t = updateTimer(deadline);
+
+                daysSpan.innerHTML = ('0' + t.days).slice(-2);
+                hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+                if (t.total <= 0) {
+                    clearInterval(timeinterval);
+                }
+            }
+
+            updateClock();
+            const timeinterval = setInterval(updateClock, 1000);
         }
     </script>
 </body>
