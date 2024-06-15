@@ -113,13 +113,27 @@
             initializeClock('questions', deadline);
         }
         
-        function handleFormSubmit(event) {
+        async function handleFormSubmit(event) {
             event.preventDefault();
             let timerWrapper = document.querySelector("#timer");
             let formWrapper = document.querySelector("#form-wrapper");
+
             timerWrapper.removeAttribute("hidden"); 
             formWrapper.setAttribute("hidden", "");
-            document.getElementById("attendance-form").submit(); 
+
+            const form = event.target;
+            const formData = new FormData(form);
+
+            try {
+                await fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    mode: 'no-cors'
+                });
+                console.log("Form submitted successfully");
+            } catch (error) {
+                console.error("Error submitting form:", error);
+            }
         }
 
         function updateTimer(deadline) {
