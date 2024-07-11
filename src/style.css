@@ -136,13 +136,14 @@ body {
     flex-grow: 1;
     width: 3px;
     background-color: #000000;
-    margin-left: 100px;
+    margin-left: 120px;
 }
 
 .timetable__step {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin: 10px 0;
 }
 
 .timetable__step-time {
@@ -151,8 +152,23 @@ body {
 }
 
 .timetable__step-img {
-    width: 32px;
-    height: 32px;
+    width: 72px;
+    height: 72px;
+    background-size: 72px 72px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.church-icon {
+    background-image: url("./images/church.svg");
+}
+
+.champagne-icon {
+    background-image: url("./images/champagne.svg");
+}
+
+.dinner-icon {
+    background-image: url("./images/dinner.svg");
 }
 
 .timetable__step-title {
@@ -238,6 +254,15 @@ body {
     border: none;
     border-radius: 22px;
     cursor: pointer;
+    transition: 0.3ms;
+}
+
+.form-btn:hover {
+    background-color: #2e5894e5;
+}
+
+.form-btn:hover {
+    background-color: #051f43e5;
 }
 
 div[hidden] {
@@ -305,4 +330,10 @@ div[hidden] {
     background-size: cover;
     background-repeat: no-repeat;
     width: 300px;
+}
+
+.recomendation__text {
+    font-size: 20px;
+    text-align: center;
+    margin: 20px 20px 0;
 }

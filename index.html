@@ -28,27 +28,21 @@
             <h3 class="section-header">Программа дня</h3>
             <div class="timetable__steps">
                 <div class="timetable__step">
-                    <p class="timetable__step-time">11:30</p>
-                    <div class="timetable__step-img"></div>
+                    <p class="timetable__step-time">11:00</p>
+                    <div class="timetable__step-img church-icon"></div>
                     <h4 class="timetable__step-title">Венчание</h4>
                 </div>
                 <div class="timetable__line"></div>
                 <div class="timetable__step">
-                    <p class="timetable__step-time"></p>
-                    <div class="timetable__step-img"></div>
-                    <h4 class="timetable__step-title">Что-то</h4>
+                    <p class="timetable__step-time">12:00</p>
+                    <div class="timetable__step-img champagne-icon"></div>
+                    <h4 class="timetable__step-title">Фуршет / сбор гостей</h4>
                 </div>
                 <div class="timetable__line"></div>
                 <div class="timetable__step">
-                    <p class="timetable__step-time">13:30</p>
-                    <div class="timetable__step-img"></div>
+                    <p class="timetable__step-time">12:30</p>
+                    <div class="timetable__step-img dinner-icon"></div>
                     <h4 class="timetable__step-title">Банкет</h4>
-                </div>
-                <div class="timetable__line"></div>
-                <div class="timetable__step">
-                    <p class="timetable__step-time">00:00</p>
-                    <div class="timetable__step-img"></div>
-                    <h4 class="timetable__step-title">Завершение торжества</h4>
                 </div>
             </div>
         </section>
@@ -61,7 +55,7 @@
         <section class="questions" id="questions">
             <div class="form-wrapper" id="form-wrapper">
                 <h3 class="section-header">Ваше присутствие</h3>
-                <p class="questions__text">Подтвердите свое присутствие и ответьте на несколько вопросов.<br> Это поможет в организации торжества!<br> Будем ждать ваш ответ до 15.08.2024</p>
+                <p class="questions__text">Подтвердите свое присутствие и ответьте на несколько вопросов.<br> Это поможет в организации торжества!<br> Будем ждать ваш ответ до 25.07.2024</p>
                 <form id="attendance-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfaN-O9nHb9eAJ4kmPle-BvZNJqAeinG12hhrBU80-O-NtzmQ/formResponse" method="POST" onsubmit="handleFormSubmit(event)">
                     <div class="form-element">
                         <span class="form-element__title">Фамилия Имя</span>
@@ -84,31 +78,34 @@
                     </div>
                     <div class="form-element">
                         <span class="form-element__title">Будете ли вы один / одна / с парой / с семьей? (перечислите в строке ниже)</span>
-                        <input class="form-element__text-input" type="text" name="entry.2606285" placeholder="Например: Я, жена, двое детей" required>
+                        <input class="form-element__text-input" type="text" name="entry.2606285" placeholder="Если выбрали Не смогу прийти, поставьте прочерк" required>
                     </div>
                     <button type="submit" class="form-btn">Отправить ответ</button>
                 </form>
             </div>
-                <div class="timer-wrapper" id="timer" hidden>
-                    <h3 class="section-header">До свадьбы осталось</h3>
-                    <div class="timer__box">
-                        <div class="timer">
-                            <div class="timer__label">Дни</div>
-                            <div class="timer__value days"></div>
-                        </div>
-                        <div class="timer">
-                            <div class="timer__label">Часы</div>
-                            <div class="timer__value hours"></div>
-                        </div>
-                        <div class="timer">
-                            <div class="timer__label">Минуты</div>
-                            <div class="timer__value minutes"></div>
-                        </div>
-                        <div class="timer">
-                            <div class="timer__label">Секунды</div>
-                            <div class="timer__value seconds"></div>
+                <div id="timer" hidden>
+                    <div class="timer-wrapper">
+                        <h3 class="section-header">До свадьбы осталось</h3>
+                        <div class="timer__box">
+                            <div class="timer">
+                                <div class="timer__label">Дни</div>
+                                <div class="timer__value days"></div>
+                            </div>
+                            <div class="timer">
+                                <div class="timer__label">Часы</div>
+                                <div class="timer__value hours"></div>
+                            </div>
+                            <div class="timer">
+                                <div class="timer__label">Минуты</div>
+                                <div class="timer__value minutes"></div>
+                            </div>
+                            <div class="timer">
+                                <div class="timer__label">Секунды</div>
+                                <div class="timer__value seconds"></div>
+                            </div>
                         </div>
                     </div>
+                    <p class="recomendation__text">Вместо цветов приятным комплиментом для нас будет бутылка вашего любимого вина, которую мы откроем на ближайшем совместном празднике.</p>
                 </div>
         </section>
         <section class="waiting">
