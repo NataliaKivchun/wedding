@@ -34,6 +34,7 @@
     font-family: 'OpenSans', sans-serif;
     font-weight: 400;
     box-sizing: border-box;
+    font-style: italic;
 }
 
 body {
@@ -80,6 +81,7 @@ body {
     font-family: 'GreatVibes', sans-serif;
     color: #dee1f9;
     font-size: 90px;
+    font-style: normal;
 }
 
 .banner__text {
@@ -103,6 +105,7 @@ body {
     font-family: 'GreatVibes', sans-serif;
     color: #000000;
     font-size: 80px;
+    font-style: normal;
 }
 
 @media (max-width: 630px) { 
@@ -135,8 +138,8 @@ body {
 .timetable__line {
     flex-grow: 1;
     width: 3px;
-    background-color: #000000;
-    margin-left: 120px;
+    background-color: #0b336be5;
+    margin-left: 110px;
 }
 
 .timetable__step {
@@ -148,14 +151,15 @@ body {
 
 .timetable__step-time {
     font-size: 26px;
-    width: 75px;
+    width: 70px;
     flex-shrink: 0;
+    font-weight: 500;
 }
 
 .timetable__step-img {
-    width: 72px;
-    height: 72px;
-    background-size: 72px 72px;
+    width: 64px;
+    height: 64px;
+    background-size: 64px 64px;
     background-position: center;
     background-repeat: no-repeat;
     flex-shrink: 0;
@@ -174,8 +178,15 @@ body {
 }
 
 .timetable__step-title {
-    font-size: 20px;
+    font-size: 32px;
     font-weight: 700;
+    font-family: 'GreatVibes', sans-serif;
+    font-style: normal;
+}
+
+.timetable__step-text {
+    font-family: 'OpenSans', sans-serif;
+    font-size: 14px;
 }
 
 .location {
@@ -197,8 +208,16 @@ body {
 }
 
 .location__link {
-    color: #000000;
+    color: #0b336be5;
     margin-top: 10px;
+}
+
+.location__link:hover {
+    color: #2e5894e5;
+}
+
+.location__link:active {
+    color: #051f43e5;
 }
 
 .questions {
