@@ -231,7 +231,7 @@ body {
 }
 
 .questions__text {
-    margin: 20px 0 35px;
+    margin: 20px 0 15px;
     text-align: center;
     font-size: 18px;
 }
@@ -357,4 +357,10 @@ div[hidden] {
     font-size: 20px;
     text-align: center;
     margin: 20px 20px 0;
+}
+
+.questions__link {
+    color: #0b95f7;
+    font-size: 25px;
+    margin-bottom: 100px;
 }
